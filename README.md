@@ -9,7 +9,6 @@ php artisan jetstream:install livewire
 npm install
 npm run dev
 php artisan migrate
-
 ```  
 # Démarrage du serveur
 ```
