@@ -10,6 +10,8 @@ npm install
 npm run dev
 php artisan migrate
 ```  
+# Base de donnée  
+L'utilisateur "evalLara" possède l'accès a ce projet uniquement
 # Démarrage du serveur
 ```
 php artisan serve
