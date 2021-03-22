@@ -17,3 +17,9 @@ L'utilisateur "evalLara" possède l'accès a ce projet uniquement
 php artisan serve
 ```  
 *Cette commande est à faire a l'origine du projet*
+# Commandes utiles  
+
+```
+php artisan make:controller HomeController
+```
+Création de controlleur 
