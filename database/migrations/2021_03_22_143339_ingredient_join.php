@@ -13,17 +13,17 @@ class IngredientJoin extends Migration
      */
     public function up()
     {
-        Schema::create('ingredient_join', function (Blueprint $table) {
+        Schema::create('dishes_ingredient', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger('ingredients');
-            $table->foreign('ingredients')
+            $table->unsignedBigInteger('ingredient_id');
+            $table->foreign('ingredient_id')
                 ->references('id')
                 ->on('ingredients')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->unsignedBigInteger('dishes');
-            $table->foreign('dishes')
+            $table->unsignedBigInteger('dishes_id');
+            $table->foreign('dishes_id')
                 ->references('id')
                 ->on('dishes')
                 ->onDelete('cascade')

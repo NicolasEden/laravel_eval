@@ -7,39 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ingredient extends Model
 {
-    use HasFactory;
-    private $id;
-    private $libelle;
-
-    /**
-     * @return mixed
-     */
-    public function getLibelle()
+    protected $hidden = ['created_at', 'updated_at', 'deleted_at', 'id', 'dishes', 'pivot'];
+    public function dishes()
     {
-        return $this->libelle;
-    }
-
-    /**
-     * @param mixed $libelle
-     */
-    public function setLibelle($libelle)
-    {
-        $this->libelle = $libelle;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
+        return $this->belongsToMany(Dishes::class);
     }
 }
