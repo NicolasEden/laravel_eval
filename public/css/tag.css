@@ -1,0 +1,190 @@
+div.add {
+  /*==========================================================================*/
+}
+div.add form {
+  display: flex;
+  flex-direction: column;
+}
+div.add div {
+  margin: 5px 0 0 0;
+}
+div.add button {
+  margin: 15px 0 0 0;
+}
+div.add .area {
+  min-height: 50px;
+}
+div.add button {
+  border-color: #6b7280;
+  border-width: 1px;
+  padding: 8px 12px;
+}
+div.add *:after, div.add *:before, div.add * {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-family: arial;
+}
+div.add input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+div.add h1 {
+  background: #F1C617;
+  width: 150px;
+  padding: 20px 15px;
+  box-shadow: 4px 4px 5px #304049;
+  text-shadow: -1px 2px 1px #888;
+  color: #fff;
+  text-align: center;
+  margin: 30px auto 50px;
+  position: relative;
+}
+div.add h1:after {
+  content: "";
+  position: absolute;
+  border: 25px solid rgba(0, 0, 0, 0);
+  border-bottom: 25px solid #F1C617;
+  width: 80px;
+  rotate: -90deg;
+  left: -63px;
+  top: 14px;
+}
+div.add h1:before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #374954;
+  z-index: 1;
+  left: -15px;
+  top: 30px;
+  border-radius: 100%;
+  border: 1px solid #fff;
+}
+div.add table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  border: 1px solid #999;
+  height: 32px;
+  margin-top: 50px;
+}
+div.add table td {
+  border-bottom: 1px solid #999;
+  padding: 8px 25px;
+  color: #ddd;
+}
+div.add table td:nth-child(2) {
+  color: #F1C617;
+  font-size: 14px;
+  line-height: 2;
+}
+div.add table td span {
+  background: #000;
+  color: #fff;
+  padding: 3px 5px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+div.add .chcek {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  background: #00c66a;
+  position: relative;
+  border-radius: 100%;
+}
+div.add .chcek:after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 15px;
+  left: 8px;
+  top: 3px;
+  border-bottom: 3px solid #fff;
+  border-right: 3px solid #fff;
+  rotate: 45deg;
+}
+div.add p {
+  color: #ddd;
+}
+div.add .tagarea {
+  display: none;
+}
+div.add .tag-box {
+  list-style: none;
+  padding: 3px;
+  margin: 0;
+  display: inline-block;
+  font-family: arial;
+  min-height: 50px;
+  width: 100%;
+  border: 1px solid #F39F19;
+}
+div.add .tag-box li {
+  padding: 4px 6px;
+  height: 32px;
+  min-width: 100px;
+  float: left;
+  display: inline-block;
+}
+div.add .tag-box li.tags {
+  background: #F1C617;
+  color: #fff;
+  border-radius: 4px;
+  margin: 4px 3px;
+  position: relative;
+}
+div.add .tag-box li.tags .close {
+  display: inline-block;
+  position: absolute;
+  color: #E7832B;
+  overflow: hidden;
+  width: 0;
+  right: 0;
+  height: 18px;
+  cursor: pointer;
+  top: 4px;
+}
+div.add .tag-box li.tags .close:after {
+  content: "x";
+}
+div.add .tag-box li.tags.edit {
+  background: none;
+  width: 150px;
+  height: 32px;
+  border: 1px solid #F1C617;
+  color: #F1C617;
+}
+div.add .tag-box li.tags.edit .input-tag {
+  height: auto;
+}
+div.add .tag-box li.tags.edit:hover {
+  padding: 4px 6px;
+}
+div.add .tag-box li.tags.danger {
+  background: #F00;
+  opacity: 0.8;
+}
+div.add .tag-box li.tags {
+  padding-right: 18px;
+}
+div.add .tag-box li.tags .close {
+  width: 14px;
+}
+div.add .tag-box li .input-tag {
+  color: #fff;
+  height: 32px;
+  width: 150px;
+  font-size: 16px;
+  color: black;
+  border: none;
+  outline: none;
+  background: none;
+}
+div.add .tag-box li .input-tag:hover, div.add .tag-box li .input-tag:focus {
+  outline: none;
+  border: none;
+}
+
+/*# sourceMappingURL=tag.css.map */
