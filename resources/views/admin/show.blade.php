@@ -24,17 +24,17 @@
                 </div>
                 <table class="mainTable">
                     <thead>
-                        <tr>
-                            <th class="th-title">#</th>
-                            <th class="th-title">Plat</th>
-                            <th class="th-title">Prix</th>
-                            <th class="th-title">Poids</th>
-                            <th class="th-title">Origine</th>
-                            <th class="th-title">Type de nourriture</th>
-                            <th class="th-title">Type du plat</th>
-                            <th class="th-title">Ingrédients</th>
-                            <th class="th-title"></th>
-                        </tr>
+                    <tr>
+                        <th class="th-title">#</th>
+                        <th class="th-title">Plat</th>
+                        <th class="th-title">Prix</th>
+                        <th class="th-title">Poids</th>
+                        <th class="th-title">Origine</th>
+                        <th class="th-title">Type de nourriture</th>
+                        <th class="th-title">Type du plat</th>
+                        <th class="th-title">Ingrédients</th>
+                        <th class="th-title"></th>
+                    </tr>
                     </thead>
                     <tbody>
                     <div>
@@ -60,11 +60,13 @@
                                         @endforeach
                                     </ul>
                                 </td>
+                                <input type="hidden" value="{{ $dishe["id"] }}"/>
                                 <td>
-                                    <button>Ajouter au panier</button>
+                                    <button class="button edit">Editer</button>
+                                    <button class="button delete">Supprimer</button>
                                 </td>
                             </tr>
-                        @endforeach
+                    @endforeach
                     </tbody>
                 </table>
             @else

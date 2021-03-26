@@ -1,12 +1,17 @@
+div.admin-home a {
+  border: #304049 1px;
+  padding: 8px 12px;
+  margin: 25px;
+}
+
 div.home {
   @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
   @import url(https://raw.github.com/FortAwesome/Font-Awesome/master/docs/assets/css/font-awesome.min.css);
 }
 div.home button {
-  background-color: #a0aec0;
-  padding: 5px 0 5px 0;
-  color: white;
-  border-radius: 15px;
+  padding: 8px 12px;
+  border: #304049 1px SOLID;
+  margin: 5px 0;
 }
 div.home input::-webkit-calendar-picker-indicator {
   opacity: 0;

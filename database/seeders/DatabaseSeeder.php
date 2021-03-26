@@ -33,6 +33,5 @@ class DatabaseSeeder extends Seeder
         DB::table('dishes_origines')->insert(['libelle' => "Italien"]);
         DB::table('dishes_origines')->insert(['libelle' => "Français"]);
         DB::table('dishes_origines')->insert(['libelle' => "Allemand"]);
-        DB::table('dishes')->insert(['prix' => 100, "libelle" => "Pizza", "poids" => 400, "dishes_origines" => 1, "dishes_type_food" => 1, "dishes_types" => 1]);
     }
 }
