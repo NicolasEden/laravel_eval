@@ -33,5 +33,7 @@ Toutes les pages qui ont dans la requette /admin (ex : http://localhost:8000/adm
 # Base de donnée
 Si l'utilisateur n'est pas déjà présent n'oubliez pas de l'ajouter exemple : 
 ```SQL
-CREATE USER 'noza_admin'@'%' IDENTIFIED VIA mysql_native_password USING '***';GRANT SELECT, INSERT, UPDATE, DELETE, FILE ON *.* TO 'noza_admin'@'%' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;GRANT ALL PRIVILEGES ON `nozashop`.* TO 'noza_admin'@'%';
+CREATE USER 'noza_admin'@'%' IDENTIFIED VIA mysql_native_password USING '***';
+GRANT SELECT, INSERT, UPDATE, DELETE, FILE ON *.* TO 'noza_admin'@'%' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
+GRANT ALL PRIVILEGES ON `nozashop`.* TO 'noza_admin'@'%';
 ```
