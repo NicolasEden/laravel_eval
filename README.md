@@ -30,7 +30,7 @@ Voilà votre site est donc accessible via l'URL http://localhost:8000/
 # Les pages
 Toutes les pages qui ont dans la requette /admin (ex : http://localhost:8000/admin/show) est accessible seulement avec la permission "Administrator" qui peut être modifier dans la base de donnée a la table "users" il faut mettre la value en 1.
 # Base de donnée
-Si elle n'existe pas de base n'oubliez pas de la crée vous pouvez vous inspirer de ça : 
+Si l'utilisateur n'est pas déjà présent n'oubliez pas de l'ajouter exemple : 
 - DB_CONNECTION=mysql
 - DB_HOST=127.0.0.1
 - DB_PORT=3306
