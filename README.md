@@ -32,9 +32,6 @@ Voilà votre site est donc accessible via l'URL http://localhost:8000/
 Toutes les pages qui ont dans la requette /admin (ex : http://localhost:8000/admin/show) est accessible seulement avec la permission "Administrator" qui peut être modifier dans la base de donnée a la table "users" il faut mettre la value en 1.
 # Base de donnée
 Si l'utilisateur n'est pas déjà présent n'oubliez pas de l'ajouter exemple : 
-- DB_CONNECTION=mysql
-- DB_HOST=127.0.0.1
-- DB_PORT=3306
-- DB_DATABASE=nozashop
-- DB_USERNAME=nozashop_admin
-- DB_PASSWORD=b?HDc@apLeH4n?8?
+```SQL
+CREATE USER 'noza_admin'@'%' IDENTIFIED VIA mysql_native_password USING '***';GRANT SELECT, INSERT, UPDATE, DELETE, FILE ON *.* TO 'noza_admin'@'%' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;GRANT ALL PRIVILEGES ON `nozashop`.* TO 'noza_admin'@'%';
+```
