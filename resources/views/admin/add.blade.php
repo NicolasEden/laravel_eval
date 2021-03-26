@@ -19,10 +19,10 @@
                     </datalist>
                 </div>
                 <div>
-                    <input required type="text" placeholder="Prix"/>
+                    <input required type="number" placeholder="Prix en €"/>
                 </div>
                 <div>
-                    <input required type="text" placeholder="Poids"/>
+                    <input required type="number" placeholder="Poids en g"/>
                 </div>
                 <div>
                     <select required>

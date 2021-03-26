@@ -24,10 +24,10 @@
                     </datalist>
                 </div>
                 <div>
-                    <input required type="text" placeholder="Prix" value="{{ $dishe["price"] }}"/>
+                    <input required type="number" placeholder="Prix en €" value="{{ $dishe["price"] }}"/>
                 </div>
                 <div>
-                    <input required type="text" placeholder="Poids" value="{{ $dishe["weight"] }}"/>
+                    <input required type="number" placeholder="Poids en g" value="{{ $dishe["weight"] }}"/>
                 </div>
                 <div>
                     <select required>

@@ -16,9 +16,9 @@ class CreateDishesTable extends Migration
         Schema::disableForeignKeyConstraints();
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
-            $table->integer('price');
+            $table->float('price');
             $table->string("libelle")->unique();
-            $table->integer("weight");
+            $table->float("weight");
 
             $table->unsignedBigInteger("dishes_origines");
             $table->foreign('dishes_origines')
