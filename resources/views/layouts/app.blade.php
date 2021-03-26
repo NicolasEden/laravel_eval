@@ -46,6 +46,11 @@
         @stack('modals')
 
         @livewireScripts
+        <style>
+            body {
+                font-family: 'Nunito', sans-serif;
+            }
+        </style>
     </body>
     <script src="/js/all.js" defer></script>
     <script src="/js/tag.js" defer></script>

@@ -9,7 +9,7 @@ class Ingredient extends Model
 {
     protected $hidden = ['created_at', 'updated_at', 'deleted_at', 'dishes', 'pivot'];
     protected $fillable = ["libelle"];
-    public function dishes()
+    public function dishes() // Crée la relation n:n avec le plat
     {
         return $this->belongsToMany(Dishes::class);
     }

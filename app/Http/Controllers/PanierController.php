@@ -10,7 +10,10 @@ use Illuminate\Support\Facades\DB;
 
 class PanierController extends Controller
 {
-    public function index() {
+    public function index() { // Affichage du panier par utilisateur
+        $panier = Panier::firstOrCreate( // Récupère ou crée un paneir si il existe pas
+            ['id' => Auth::user()->id],
+        );
         $panier = Panier::with(['dishes'])->get()->toArray()[0]["dishes"];
         $dishes = [];
         foreach ($panier as $item) {
@@ -18,22 +21,29 @@ class PanierController extends Controller
         }
         return view('panier', ['dishes' => $dishes]);
     }
-    public function store() {
-        $panier = Panier::firstOrCreate(
+    public function store() { // Stockage dans le panier d'un plat
+        $panier = Panier::firstOrCreate( // Récupère ou crée un paneir si il existe pas
             ['id' => Auth::user()->id],
         );
-        $dishe = Dishes::find(request()->id);
-        $present = DB::table("dishe_paniers")->select("*")->where("panier_id", "=", Auth::user()->id)->where("dishes_id", "=", request()->id)->get()->toArray();
+        $dishe = Dishes::find(request()->id); // Récupère le plat
+        $present = DB::table("dishe_paniers")
+            ->select("*")
+            ->where("panier_id", "=", Auth::user()->id)
+            ->where("dishes_id", "=", request()->id)
+            ->get()
+            ->toArray(); // Vérifie si le plat existe déjà dans le panier
         if ($dishe && sizeof($present) === 0) {
             $panier->dishes()->attach($dishe->id);
         }
+        // Création de la vue
         return redirect("/panier");
     }
-    public function delete() {
+    public function delete() { // Suppression d'un plat dans le panier
         $panier = Panier::find(Auth::user()->id);
         if (request()->id) {
             $panier->dishes()->detach(request()->id);
         }
+        // Création de la vue
         return redirect("/panier");
     }
 }

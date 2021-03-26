@@ -1,14 +1,9 @@
 @extends('dashboard')
 @section('titre')
-    Accueil
+    Accueil Modification/Suppression
 @stop
 
 @section('contenu')
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-    </style>
     <div>
         <div class="home" style="padding: 50px">
             @if (count($dishes) > 0)
@@ -16,7 +11,7 @@
                     <form action="" autocomplete="on">
                         <input id="search" name="search" list=ingredients" type="text" autocomplete="off" placeholder="Que recherchez-vous ?"><input id="search_submit" value="Rechercher" type="submit">
                         <datalist id="ingredients" >
-                            @foreach ($datalist as $key=>$data)
+                            @foreach ($datalist as $key=>$data) <!-- Parcour d'un tableau de mots recherchable -->
                                 <option value="{{ $data }}"></option>
                             @endforeach
                         </datalist>
@@ -38,7 +33,7 @@
                     </thead>
                     <tbody>
                     <div>
-                        @foreach ($dishes as $key=>$dishe)
+                        @foreach ($dishes as $key=>$dishe) <!-- Parcour d'un tableau de plats -->
                             <tr>
                                 <th class="th-row">{{ $key+1 }}</th>
                                 <td>{{ $dishe["libelle"] }}</td>
@@ -55,7 +50,7 @@
                                 </td>
                                 <td>
                                     <ul class="ul-ingredient">
-                                        @foreach($dishe["ingredients"] as $ingredient)
+                                        @foreach($dishe["ingredients"] as $ingredient) <!-- Parcour d'un tableau d'ingrédients -->
                                             <li>{{ $ingredient["libelle"] }}</li>
                                         @endforeach
                                     </ul>
@@ -70,12 +65,12 @@
                     </tbody>
                 </table>
             @else
-                @if (isset(request()->search))
+                @if (isset(request()->search)) <!-- Vérifie si il fait une rehcherche -->
                     <div id="wrap">
                         <form action="" autocomplete="on">
                             <input id="search" name="search" list=ingredients" type="text" autocomplete="off" placeholder="Que recherchez-vous ?"><input id="search_submit" value="Rechercher" type="submit">
                             <datalist id="ingredients" >
-                                @foreach ($datalist as $key=>$data)
+                                @foreach ($datalist as $key=>$data) <!-- Parcour d'un tableau de mots recherchable -->
                                     <option value="{{ $data }}"></option>
                                 @endforeach
                             </datalist>

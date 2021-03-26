@@ -4,14 +4,9 @@
 @stop
 
 @section('contenu')
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-    </style>
     <div>
         <div class="home" style="padding: 50px">
-            @if (count($dishes) > 0)
+            @if (count($dishes) > 0) <!-- Vérifie sur le nombre de plat affiché est suprérieur à 0 -->
                 <table class="mainTable">
                     <thead>
                         <tr>
@@ -28,7 +23,7 @@
                     </thead>
                     <tbody>
                     <div>
-                        @foreach ($dishes as $key=>$dishe)
+                        @foreach ($dishes as $key=>$dishe) <!-- Parcour d'un tableau de plats -->
                             <tr>
                                 <th class="th-row">{{ $key+1 }}</th>
                                 <td>{{ $dishe["libelle"] }}</td>
@@ -45,7 +40,7 @@
                                 </td>
                                 <td>
                                     <ul class="ul-ingredient">
-                                        @foreach($dishe["ingredients"] as $ingredient)
+                                        @foreach($dishe["ingredients"] as $ingredient) <!-- Parcour d'un tableau d'ingrédients' -->
                                             <li>{{ $ingredient["libelle"] }}</li>
                                         @endforeach
                                     </ul>

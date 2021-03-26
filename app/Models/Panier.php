@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Panier extends Model
 {
-    public function dishes()
+    public function dishes() // Crée la relation n:n avec le plat
     {
         return $this->belongsToMany(Dishes::class, "dishe_paniers", "panier_id", "dishes_id");
     }

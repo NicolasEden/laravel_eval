@@ -1,14 +1,9 @@
 @extends('dashboard')
 @section('titre')
-    Accueil
+    Accueil Admin
 @stop
 
 @section('contenu')
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-    </style>
     <div>
         <div class="admin-home" style="padding: 50px">
             <a href="{{ route('adminAdd') }}">Ajout d'un plat</a>

@@ -1,6 +1,6 @@
 @extends('dashboard')
 @section('titre')
-    Accueil
+    Ajout d'un plat
 @stop
 
 @section('contenu')
@@ -13,7 +13,7 @@
                 <div class="area">
                     <textarea class="tagarea"></textarea>
                     <datalist id="ingredients">
-                        @foreach($ingredients as $ingredient)
+                        @foreach($ingredients as $ingredient) <!-- Parcour d'un tableau d'ingrédients -->
                             <option value="{{ $ingredient['libelle'] }}"></option>
                         @endforeach
                     </datalist>
@@ -26,21 +26,21 @@
                 </div>
                 <div>
                     <select required>
-                        @foreach($origines as $origine)
+                        @foreach($origines as $origine) <!-- Parcour d'un tableau d'origines' -->
                             <option value="{{ $origine['id'] }}">{{ $origine['libelle'] }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div>
                     <select required>
-                        @foreach($types as $type)
+                        @foreach($types as $type) <!-- Parcour d'un tableau de types -->
                             <option value="{{ $type['id'] }}">{{ $type['libelle'] }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div>
                     <select required>
-                        @foreach($typeFoods as $typeFood)
+                        @foreach($typeFoods as $typeFood) <!-- Parcour d'un tableau de type de nourriture -->
                             <option value="{{ $typeFood['id'] }}">{{ $typeFood['libelle'] }}</option>
                         @endforeach
                     </select>
