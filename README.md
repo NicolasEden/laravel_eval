@@ -4,7 +4,7 @@ Quelques fonctionnalitées ne sont pas présentes :
 - Dataseed/factories
 - Commandes & Historique de commande
 - Création d'un(e) nouveau(elle) Origine, Type & Type de nourriture dans le back office
-- Gestion des e-mails
+- Gestion des e-mails  
 L'utilisateur "nozashop" possède un accès à la base de donnée mais pas les autres, il a également pas toutes les permissions.
 # Démarrage du serveur 
 Pour ce projet nous utilisons certains dépendances qui doivent être installés :
