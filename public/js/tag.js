@@ -15,6 +15,18 @@ $(`.delete`).on("click", (e) => {
     const id = row.childNodes[17].value;
     window.location.href = `/admin/delete?id=${id}`;
 })
+$(`.panierDelete`).on("click", (e) => {
+    const element = $(e.target);
+    const row = element.parents()[1];
+    const id = row.childNodes[17].value;
+    window.location.href = `/panier/delete?id=${id}`;
+})
+$(`.panierAdd`).on("click", (e) => {
+    const element = $(e.target);
+    const row = element.parents()[1];
+    const id = row.childNodes[17].value;
+    window.location.href = `/panier/add?id=${id}`;
+})
 
 
 

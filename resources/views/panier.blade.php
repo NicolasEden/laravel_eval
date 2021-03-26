@@ -1,6 +1,6 @@
 @extends('dashboard')
 @section('titre')
-    Accueil
+    Panier
 @stop
 
 @section('contenu')
@@ -12,16 +12,6 @@
     <div>
         <div class="home" style="padding: 50px">
             @if (count($dishes) > 0)
-                <div id="wrap">
-                    <form action="" autocomplete="on">
-                        <input id="search" name="search" list=ingredients" type="text" autocomplete="off" placeholder="Que recherchez-vous ?"><input id="search_submit" value="Rechercher" type="submit">
-                        <datalist id="ingredients" >
-                            @foreach ($datalist as $key=>$data)
-                                <option value="{{ $data }}"></option>
-                            @endforeach
-                        </datalist>
-                    </form>
-                </div>
                 <table class="mainTable">
                     <thead>
                         <tr>
@@ -62,27 +52,14 @@
                                 </td>
                                 <input type="hidden" value="{{ $dishe["id"] }}"/>
                                 <td>
-                                    <button class="panierAdd">Ajouter au panier</button>
+                                    <button class="panierDelete">Supprimer du panier</button>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             @else
-                @if (isset(request()->search))
-                    <div id="wrap">
-                        <form action="" autocomplete="on">
-                            <input id="search" name="search" list=ingredients" type="text" autocomplete="off" placeholder="Que recherchez-vous ?"><input id="search_submit" value="Rechercher" type="submit">
-                            <datalist id="ingredients" >
-                                @foreach ($datalist as $key=>$data)
-                                    <option value="{{ $data }}"></option>
-                                @endforeach
-                            </datalist>
-                        </form>
-                    </div>
-                    <h1 class="error">Nous n'avons pas trouvé de plat via terme "{{ request()->search }}"</h1>
-                @else <h1 class="error">Oups, les autres clients ont déjà tout volé... 😥 </h1>
-                @endif
+                <h1 class="error">C'est vide par ici, ajoutez des produits ! </h1>
             @endif
         </div>
     </div>

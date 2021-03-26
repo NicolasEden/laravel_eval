@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DeniedController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PanierController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'admin'], function() {
@@ -17,3 +18,9 @@ Route::group(['prefix' => 'admin'], function() {
 Route::get('/denied', [DeniedController::class, 'index']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/', [HomeController::class, 'index'])->name('dashboard');
+
+Route::group(['middleware' => ['auth:sanctum', 'verified'], "prefix" => "panier"], function() {
+    Route::get('/', [PanierController::class, 'index'])->name('panier');
+    Route::get('/add', [PanierController::class, 'store'])->name('panier');
+    Route::get('/delete', [PanierController::class, 'delete'])->name('panier');
+});
