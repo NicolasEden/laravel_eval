@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 24 mars 2021 à 16:14
+-- Généré le : ven. 26 mars 2021 à 15:46
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.2
 
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `dishes` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `price` int(11) NOT NULL,
+  `price` float NOT NULL,
   `libelle` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `weight` int(11) NOT NULL,
+  `weight` float NOT NULL,
   `dishes_origines` bigint(20) UNSIGNED NOT NULL,
   `dishes_type_food` bigint(20) UNSIGNED NOT NULL,
   `dishes_types` bigint(20) UNSIGNED NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE `dishes` (
 --
 
 INSERT INTO `dishes` (`id`, `price`, `libelle`, `weight`, `dishes_origines`, `dishes_type_food`, `dishes_types`, `created_at`, `updated_at`) VALUES
-(1, 100, 'Pizza', 400, 1, 1, 1, NULL, NULL);
+(1, 47.1, 'Pâtes', 75, 2, 2, 2, '2021-03-26 13:32:00', '2021-03-26 13:32:00');
 
 -- --------------------------------------------------------
 
@@ -59,6 +59,15 @@ CREATE TABLE `dishes_ingredient` (
   `ingredient_id` bigint(20) UNSIGNED NOT NULL,
   `dishes_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `dishes_ingredient`
+--
+
+INSERT INTO `dishes_ingredient` (`id`, `created_at`, `updated_at`, `ingredient_id`, `dishes_id`) VALUES
+(11, NULL, NULL, 1, 1),
+(12, NULL, NULL, 2, 1),
+(13, NULL, NULL, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -130,6 +139,18 @@ INSERT INTO `dishes_type_food` (`id`, `libelle`, `created_at`, `updated_at`) VAL
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `dishe_paniers`
+--
+
+CREATE TABLE `dishe_paniers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `panier_id` bigint(20) UNSIGNED NOT NULL,
+  `dishes_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `failed_jobs`
 --
 
@@ -194,7 +215,27 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (9, '2021_03_22_142621_create_dishes_type_food_table', 1),
 (10, '2021_03_22_142634_create_dishes_types_table', 1),
 (11, '2021_03_22_142752_create_dishes_origines_table', 1),
-(12, '2021_03_24_132309_create_dishes_ingredients_table', 1);
+(12, '2021_03_24_132309_create_dishes_ingredients_table', 1),
+(13, '2021_03_26_124756_create_paniers_table', 1),
+(14, '2021_03_26_124917_panier_join', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `paniers`
+--
+
+CREATE TABLE `paniers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `paniers`
+--
+
+INSERT INTO `paniers` (`id`, `user_id`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -246,7 +287,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('KXOuLKKxwf6MdKEBSIFSbF5tuCb2WpqtvUGnHexl', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 OPR/73.0.3856.415', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiY1o1VW1sZ2J5RUpvY0VJbjdGemt3MWRHcHhwOHhKQVk2RnBXQXdzcSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hZG1pbi9hZGQiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjM6InVybCI7YTowOnt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjE3OiJwYXNzd29yZF9oYXNoX3dlYiI7czo2MDoiJDJ5JDEwJHg1ZThqWnRwNDRadlVDVmJ3SlQuTHVkZmdiRTRmR21ha1p2NkJQTE1wem1UZXRZMElTLlN5IjtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCR4NWU4alp0cDQ0WnZVQ1Zid0pULkx1ZGZnYkU0ZkdtYWtadjZCUExNcHptVGV0WTBJUy5TeSI7fQ==', 1616598676);
+('MGq3gUsy1luGRKVKhIEbGPMtDWIFwdAGQvkNUBlY', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36 OPR/73.0.3856.415', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiZnFFVklKWTNsSURKTG10TGR1ZVJPWUMySEVOaEhNVUtRM25hMGZMaSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjMyOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYWRtaW4vc2hvdyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCRkRUFPbk1QSUpYSEh5a2p4UERFT0IuWXV5SGhUdEJDRnFUbUhrTnYwZy9jWDdYQkFFeU1HcSI7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkZEVBT25NUElKWEhIeWtqeFBERU9CLll1eUhoVHRCQ0ZxVG1Ia052MGcvY1g3WEJBRXlNR3EiO30=', 1616769121);
 
 -- --------------------------------------------------------
 
@@ -266,6 +307,7 @@ CREATE TABLE `users` (
   `current_team_id` bigint(20) UNSIGNED DEFAULT NULL,
   `profile_photo_path` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `administrator` tinyint(1) NOT NULL DEFAULT 0,
+  `panier` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -274,8 +316,8 @@ CREATE TABLE `users` (
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `current_team_id`, `profile_photo_path`, `administrator`, `created_at`, `updated_at`) VALUES
-(1, 'Nicolas', 'nefitetifall@gmail.com', NULL, '$2y$10$x5e8jZtp44ZvUCVbwJT.LudfgbE4fGmakZv6BPLMpzmTetY0IS.Sy', NULL, NULL, NULL, NULL, NULL, 1, '2021-03-24 12:30:53', '2021-03-24 12:30:53');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `current_team_id`, `profile_photo_path`, `administrator`, `panier`, `created_at`, `updated_at`) VALUES
+(1, 'Nicolas', 'nefitetifall@gmail.com', NULL, '$2y$10$dEAOnMPIJXHHykjxPDEOB.YuyHhTtBCFqTmHkNv0g/cX7XBAEyMGq', NULL, NULL, NULL, NULL, NULL, 1, NULL, '2021-03-26 11:54:05', '2021-03-26 11:54:05');
 
 --
 -- Index pour les tables déchargées
@@ -296,8 +338,8 @@ ALTER TABLE `dishes`
 --
 ALTER TABLE `dishes_ingredient`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `dishes_ingredients_ingredient_id_foreign` (`ingredient_id`),
-  ADD KEY `dishes_ingredients_dishes_id_foreign` (`dishes_id`);
+  ADD KEY `dishes_ingredient_ingredient_id_foreign` (`ingredient_id`),
+  ADD KEY `dishes_ingredient_dishes_id_foreign` (`dishes_id`);
 
 --
 -- Index pour la table `dishes_origines`
@@ -321,6 +363,14 @@ ALTER TABLE `dishes_type_food`
   ADD UNIQUE KEY `dishes_type_food_libelle_unique` (`libelle`);
 
 --
+-- Index pour la table `dishe_paniers`
+--
+ALTER TABLE `dishe_paniers`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `dishe_paniers_panier_id_foreign` (`panier_id`),
+  ADD KEY `dishe_paniers_dishes_id_foreign` (`dishes_id`);
+
+--
 -- Index pour la table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -339,6 +389,13 @@ ALTER TABLE `ingredients`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `paniers`
+--
+ALTER TABLE `paniers`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `paniers_user_id_foreign` (`user_id`);
 
 --
 -- Index pour la table `password_resets`
@@ -383,7 +440,7 @@ ALTER TABLE `dishes`
 -- AUTO_INCREMENT pour la table `dishes_ingredient`
 --
 ALTER TABLE `dishes_ingredient`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT pour la table `dishes_origines`
@@ -404,6 +461,12 @@ ALTER TABLE `dishes_type_food`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT pour la table `dishe_paniers`
+--
+ALTER TABLE `dishe_paniers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT pour la table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -419,7 +482,13 @@ ALTER TABLE `ingredients`
 -- AUTO_INCREMENT pour la table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT pour la table `paniers`
+--
+ALTER TABLE `paniers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `personal_access_tokens`
@@ -449,8 +518,21 @@ ALTER TABLE `dishes`
 -- Contraintes pour la table `dishes_ingredient`
 --
 ALTER TABLE `dishes_ingredient`
-  ADD CONSTRAINT `dishes_ingredients_dishes_id_foreign` FOREIGN KEY (`dishes_id`) REFERENCES `dishes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `dishes_ingredients_ingredient_id_foreign` FOREIGN KEY (`ingredient_id`) REFERENCES `ingredients` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `dishes_ingredient_dishes_id_foreign` FOREIGN KEY (`dishes_id`) REFERENCES `dishes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `dishes_ingredient_ingredient_id_foreign` FOREIGN KEY (`ingredient_id`) REFERENCES `ingredients` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `dishe_paniers`
+--
+ALTER TABLE `dishe_paniers`
+  ADD CONSTRAINT `dishe_paniers_dishes_id_foreign` FOREIGN KEY (`dishes_id`) REFERENCES `dishes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `dishe_paniers_panier_id_foreign` FOREIGN KEY (`panier_id`) REFERENCES `paniers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Contraintes pour la table `paniers`
+--
+ALTER TABLE `paniers`
+  ADD CONSTRAINT `paniers_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
